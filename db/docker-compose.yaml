@@ -1,0 +1,13 @@
+version: '3'
+services:
+  mariadb:
+    image: mariadb:10.4.7
+    container_name: mariadb
+    ports:
+      - 4306:3306
+    volumes:
+      - ./mariadb/conf.d:/etc/mysql/conf.d
+      - ./mariadb/init.d:/docker-entrypoint-initdb.d/
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: sampledb
