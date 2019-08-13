@@ -18,8 +18,7 @@ class UserServiceImpl : UserService {
 
     @Transactional
     override fun create(user: User): User {
-        userRepository.create(user)
-        return user
+        return userRepository.create(user)
     }
 
     override fun delete(id: Int) {
@@ -28,8 +27,7 @@ class UserServiceImpl : UserService {
 
     @Transactional
     override fun update(user: User): User {
-        userRepository.update(user)
-        return user
+        return userRepository.update(user)
     }
 
     override fun findById(id: Int): User {

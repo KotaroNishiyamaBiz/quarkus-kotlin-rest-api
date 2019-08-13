@@ -2,10 +2,7 @@ package org.acme.rest.entity
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase
 import java.time.LocalDateTime
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 
 @Entity
@@ -13,6 +10,7 @@ import javax.persistence.Table
 class UserEntity : PanacheEntityBase() {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     var id: Int = 0
 
