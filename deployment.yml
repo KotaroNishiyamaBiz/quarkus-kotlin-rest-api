@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quarkus-test
+  labels:
+    app: quarkus-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quarkus-test
+  template:
+    metadata:
+      labels:
+        app: quarkus-test
+    spec:
+      containers:
+        - name: quarkus-test
+          image: asia.gcr.io/geometric-shore-241805/quarkus-test
+          imagePullPolicy: Always
+          env:
+            - name: DATABASE_USERNAME
+              value: postgres
+            - name: DATABASE_PASSWORD
+              value: postgres
+            - name: DATASOURCE
+              value: jdbc:postgresql://10.186.80.3:5432/sampledb
+          ports:
+            - containerPort: 8080
